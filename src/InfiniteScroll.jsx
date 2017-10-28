@@ -4,6 +4,12 @@ import PropTypes from 'prop-types';
 import { getScrollParent, isWaypointVisible, spinner } from './Helpers';
 
 class InfiniteScroll extends Component {
+	constructor(props) {
+		super(props);
+
+		this.scrollListener = this.scrollListener.bind(this);
+	}
+
 	componentDidMount() {
 		this.attachScrollListener();
 	}
@@ -24,10 +30,6 @@ class InfiniteScroll extends Component {
 	}
 	
 	scrollListener() {
-
-	}
-
-	scrollListener = () => {
 		const { currentPage, clickToUpdate, hasMore, loading, onUpdate } = this.props;
 		const isVisible = isWaypointVisible(this.scrollElement, this.waypointNode);
 		

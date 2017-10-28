@@ -38,7 +38,7 @@ class App extends Component {
 				items: [...this.state.items, ...this.newItems],
 				loading: false
 			});
-		}, 2000);
+		}, 1200);
 	}
 
 	render() {
