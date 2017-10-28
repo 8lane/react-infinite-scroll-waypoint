@@ -10,7 +10,7 @@ class App extends Component {
 		super(props);
 
 		this.state = {
-			isLoading: false,
+			loading: false,
 			items: this.newItems
 		}
 	}
@@ -51,7 +51,7 @@ class App extends Component {
 				<section className="App-intro">
 					<InfiniteScroll
 						scrollElementName="App-intro"
-						loading={false}
+						loading={this.state.loading}
 						currentPage={1}
 						clickToUpdate={false}
 						hasMore={true}

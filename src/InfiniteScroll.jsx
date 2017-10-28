@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { getScrollParent, isWaypointVisible } from './Helpers';
+import { getScrollParent, isWaypointVisible, spinner } from './Helpers';
 
 class InfiniteScroll extends Component {
 	componentDidMount() {
@@ -38,6 +38,8 @@ class InfiniteScroll extends Component {
 
 	render() {
 		const {
+			loading,
+			externalSpinner,
 			children,
 			className,
 			clickToUpdate,
@@ -45,6 +47,8 @@ class InfiniteScroll extends Component {
 			waypointTagName: CustomWaypointTag,
 			waypointClassName
 		} = this.props;
+
+		const loadingSpinner = spinner();
 
 		return (
 			<CustomTag
@@ -54,6 +58,10 @@ class InfiniteScroll extends Component {
 				className={`infinite-scroll ${className}`}
 			>
 				{children}
+
+				{!externalSpinner && loading ?
+					<div className="infinite-scroll__loader">{loadingSpinner}</div>
+				: null}
 
 				{!clickToUpdate &&
 					<CustomWaypointTag

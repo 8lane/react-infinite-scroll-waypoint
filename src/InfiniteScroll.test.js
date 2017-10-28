@@ -182,12 +182,8 @@ describe('when the waypoint is visible in the scroll area', () => {
 
 describe('when display an infinite scroll area', () => {
 	let infiniteScrollComponent;
-	let attachScrollListenerSpy;
-	let addEventListener = jest.fn();
 
 	beforeAll(() => {
-		getScrollParent.mockImplementation(() => ({ addEventListener }));
-		attachScrollListenerSpy = jest.spyOn(InfiniteScroll.prototype, 'attachScrollListener');
 		infiniteScrollComponent = mount(
 			<InfiniteScroll
 				className="dayum"
@@ -216,6 +212,40 @@ describe('when display an infinite scroll area', () => {
 	it('should have an invisible waypoint element', () => {
 		expect(infiniteScrollComponent.find('span.waypoint').exists()).toBeTruthy();
 	});
+});
 
+describe('when loading new items into an infinite scroll area', () => {
+	let infiniteScrollComponent;
 
+	beforeAll(() => {
+		infiniteScrollComponent = mount(
+			<InfiniteScroll
+				className="dayum"
+				componentTagName="sicknewhtml5tag"
+				waypointTagName="span"
+				waypointClassName="waypoint"
+				scrollElementName="uareadiv"
+				loading={true}
+				clickToUpdate={false}
+				externalSpinner={false}
+				onUpdate={jest.fn()}
+			><span>stuff to scroll inside!</span></InfiniteScroll>);
+	});
+
+	describe('and an external spinner is not being used', () => {
+		it('should display a spinner', () => {
+			expect(infiniteScrollComponent.find('.infinite-scroll__loader').exists()).toBeTruthy();
+		});
+	});
+
+	describe('and an external spinner is being used', () => {
+		beforeAll(() => {
+			infiniteScrollComponent.setProps({ externalSpinner: true });
+			infiniteScrollComponent.update();
+		});
+
+		it('should not display loading text', () => {
+			expect(infiniteScrollComponent.find('.infinite-scroll__loader').exists()).toBeFalsy();
+		});
+	});
 });
