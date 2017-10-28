@@ -6,6 +6,41 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			isLoading: false,
+			items: this.newItems
+		}
+	}
+
+	get newItems() {
+		return (
+			[
+				{ title: 'lorem ipsum' },
+				{ title: 'lorem ipsum' },
+				{ title: 'lorem ipsum' },
+				{ title: 'lorem ipsum' },
+				{ title: 'lorem ipsum' },
+				{ title: 'lorem ipsum' },
+				{ title: 'lorem ipsum' },
+				{ title: 'lorem ipsum' },
+			]
+		)
+	}
+
+	getItems() {
+		this.setState({ loading: true });
+
+		setTimeout(() => {
+			this.setState({
+				items: [...this.state.items, ...this.newItems],
+				loading: false
+			});
+		}, 2000);
+	}
+
 	render() {
 		return (
 			<div className="App">
@@ -20,18 +55,13 @@ class App extends Component {
 						currentPage={1}
 						clickToUpdate={false}
 						hasMore={true}
-						onUpdate={() => console.log('func 22')}
+						onUpdate={() => this.getItems()}
 					>
-						<div>
-							<p>hello</p>
-							<p>hello</p>
-							<p>hello</p>
-							<p>hello</p>
-							<p>hello</p>
-							<p>hello</p>
-							<p>hello</p>
-							<p>hello</p>
-						</div>
+						<ul>
+							{this.state.items.map((item, idx) => 
+								<li key={idx + item.title}>{item.title}</li>
+							)}
+						</ul>
 					</InfiniteScroll>
 				</section>
 			</div>
