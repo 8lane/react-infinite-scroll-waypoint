@@ -43,9 +43,13 @@ class InfiniteScroll extends Component {
 			children,
 			className,
 			clickToUpdate,
+			clickToUpdateBtnClassName,
+			clickToUpdateBtnLabel,
+			currentPage,
 			componentTagName: CustomTag,
 			waypointTagName: CustomWaypointTag,
-			waypointClassName
+			waypointClassName,
+			onUpdate,
 		} = this.props;
 
 		const loadingSpinner = spinner();
@@ -55,7 +59,7 @@ class InfiniteScroll extends Component {
 				ref={node => {
 					this.scrollComponent = node;
 				}}
-				className={`infinite-scroll ${className}`}
+				className={className}
 			>
 				{children}
 
@@ -70,59 +74,23 @@ class InfiniteScroll extends Component {
 						}}
 						className={waypointClassName}
 						style={{ display: 'inline-block' }}
-					/>}
+					/>
+				}
+
+				{clickToUpdate &&
+					<button
+						ref={node => {
+							this.waypointNode = node;
+						}}
+						className={clickToUpdateBtnClassName}
+						disabled={loading}
+						onClick={() => onUpdate(currentPage + 1)}>
+						{clickToUpdateBtnLabel}
+					</button>
+				}
 			</CustomTag>
 		)
 	}
-
-	// render() {
-	// 	const {
-	// 		children,
-	// 		currentPage,
-	// 		loading,
-	// 		className,
-	// 		clickToUpdate,
-	// 		clickToUpdateBtn,
-	// 		componentTagName: CustomTag,
-	// 		waypointTagName: CustomWaypointTag,
-	// 		waypointClassName,
-	// 		onUpdate,
-	// 		externalSpinner
-	// 	} = this.props;
-
-	// 	return (
-	// 		<CustomTag
-	// 			ref={node => {
-	// 				this.scrollComponent = node;
-	// 			}}
-	// 			className={`infinite-scroll ${className}`}>
-	// 			{children}
-
-	// 			{!externalSpinner && loading && children.length > 0 && 'loading...'}
-
-	// 			{!clickToUpdate &&
-	// 				<CustomWaypointTag
-	// 					ref={node => {
-	// 						this.waypointNode = node;
-	// 					}}
-	// 					className={waypointClassName}
-	// 					style={{ display: 'inline-block' }}
-	// 				/>}
-
-	// 			{children.length > 0 &&
-	// 				clickToUpdate &&
-	// 				<button
-	// 					ref={node => {
-	// 						this.waypointNode = node;
-	// 					}}
-	// 					className={waypointClassName}
-	// 					disabled={loading}
-	// 					onClick={() => onUpdate(currentPage + 1)}>
-	// 					{clickToUpdateBtn}
-	// 				</button>}
-	// 		</CustomTag>
-	// 	);
-	// }
 }
 
 export default InfiniteScroll;
@@ -132,7 +100,8 @@ InfiniteScroll.defaultProps = {
 	hasMore: true,
 	currentPage: 1,
 	clickToUpdate: false,
-	clickToUpdateBtn: 'Load more...',
+	clickToUpdateBtnClassName: 'infinite-scroll__update-cta',
+	clickToUpdateBtnLabel: 'Load more...',
 	componentTagName: 'div',
 	waypointTagName: 'span',
 	waypointClassName: 'infinite-scroll__waypoint',
@@ -147,7 +116,8 @@ InfiniteScroll.propTypes = {
 	currentPage: PropTypes.number,
 	className: PropTypes.string,
 	clickToUpdate: PropTypes.bool,
-	clickToUpdateBtn: PropTypes.string,
+	clickToUpdateBtnClassName: PropTypes.string,
+	clickToUpdateBtnLabel: PropTypes.string,
 	loading: PropTypes.bool.isRequired,
 	componentTagName: PropTypes.string,
 	waypointTagName: PropTypes.string,

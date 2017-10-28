@@ -282,3 +282,58 @@ describe('when loading new items into an infinite scroll area', () => {
 		});
 	});
 });
+
+describe('when displaying a button to manually load more results', () => {
+	let infiniteScrollComponent;
+	let onUpdate = jest.fn();
+
+	beforeAll(() => {
+		infiniteScrollComponent = mount(
+			<InfiniteScroll
+				className="dayum"
+				componentTagName="sicknewhtml5tag"
+				waypointTagName="span"
+				waypointClassName="waypoint"
+				scrollElementName="uareadiv"
+				loading={false}
+				clickToUpdate={true}
+				clickToUpdateBtnLabel="Click me to load more"
+				externalSpinner={false}
+				onUpdate={onUpdate}
+				currentPage={19}
+			>
+				<div>a joke</div>
+			</InfiniteScroll>);
+	});
+
+	it('should display', () => {
+		expect(infiniteScrollComponent.find('button.infinite-scroll__update-cta').exists()).toBeTruthy();
+	});
+
+	it('should have a label', () => {
+		expect(infiniteScrollComponent.find('button.infinite-scroll__update-cta').text()).toEqual('Click me to load more');
+	});
+
+	describe('and clicking the button', () => {
+		beforeAll(() => {
+			infiniteScrollComponent.find('button.infinite-scroll__update-cta').simulate('click');
+		});
+
+		it('should load more items from the next set of results', () => {
+			expect(onUpdate).toHaveBeenCalledWith(20);
+		});
+	});
+
+	describe('whilst results are currently loading', () => {
+		beforeAll(() => {
+			infiniteScrollComponent.setProps({ loading: true });
+			infiniteScrollComponent.update();
+		});
+
+		it('should be disabled', () => {
+			expect(infiniteScrollComponent.find('button.infinite-scroll__update-cta').prop('disabled')).toBeTruthy();
+		});
+	});
+});
+
+
