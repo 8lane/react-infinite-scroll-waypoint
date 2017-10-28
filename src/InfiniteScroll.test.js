@@ -216,6 +216,7 @@ describe('when display an infinite scroll area', () => {
 
 describe('when loading new items into an infinite scroll area', () => {
 	let infiniteScrollComponent;
+	let items = [{ id: 'please' }, { id: 'send' }, { id: 'help' }];
 
 	beforeAll(() => {
 		infiniteScrollComponent = mount(
@@ -229,7 +230,11 @@ describe('when loading new items into an infinite scroll area', () => {
 				clickToUpdate={false}
 				externalSpinner={false}
 				onUpdate={jest.fn()}
-			><span>stuff to scroll inside!</span></InfiniteScroll>);
+			>
+				<div>
+					{items.map(item => <span key={item.id}>{item.id}</span>)}
+				</div>
+			</InfiniteScroll>);
 	});
 
 	describe('and an external spinner is not being used', () => {
@@ -245,6 +250,34 @@ describe('when loading new items into an infinite scroll area', () => {
 		});
 
 		it('should not display loading text', () => {
+			expect(infiniteScrollComponent.find('.infinite-scroll__loader').exists()).toBeFalsy();
+		});
+
+		afterAll(() => {
+			infiniteScrollComponent.setProps({ loading: false, externalSpinner: false });
+			infiniteScrollComponent.update();
+		});
+	});
+
+	describe('and then loading even more items', () => {
+		beforeAll(() => {
+			items = [...items, { id: 'hello?' }];
+			const children = () => <ul>{items.map(item => <li key={item.id}>{item.id}</li>)}</ul>;
+			infiniteScrollComponent.setProps({ loading: true, children: children() });
+			infiniteScrollComponent.update();
+		});
+
+		it('should show a spinner', () => {
+			expect(infiniteScrollComponent.find('.infinite-scroll__loader').exists()).toBeTruthy();
+		});
+
+		it('should update the scroll area with the new items', () => {
+			expect(infiniteScrollComponent.find('li')).toHaveLength(4);
+		});
+
+		it('should then hide the spinner', () => {
+			infiniteScrollComponent.setProps({ loading: false });
+			infiniteScrollComponent.update();
 			expect(infiniteScrollComponent.find('.infinite-scroll__loader').exists()).toBeFalsy();
 		});
 	});
