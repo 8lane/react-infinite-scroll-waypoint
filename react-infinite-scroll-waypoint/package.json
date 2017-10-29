@@ -1,8 +1,19 @@
 {
   "name": "react-infinite-scroll-waypoint",
-  "version": "0.0.1",
-  "description": "Put a description here",
+  "version": "0.0.9",
+  "description": "Infinite scroll component focusing on easy integration via advanced configuration abilities",
   "main": "./compiled/index.js",
+  "keywords": [
+    "infinite scroll",
+    "react infinite scroll",
+    "waypoint",
+    "react waypoint",
+    ""
+  ],
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/tctc91/react-infinite-scroll-waypoint.git"
+  },
   "peerDependencies": {
     "react": "^15.5.4"
   },
@@ -17,7 +28,8 @@
   },
   "author": {
     "name": "Tom Christian",
-    "email": "hello@elseif.io"
+    "email": "hello@elseif.io",
+    "web": "http://tomchristian.co.uk"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
