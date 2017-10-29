@@ -64,7 +64,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 8);
+/******/ 	return __webpack_require__(__webpack_require__.s = 7);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -474,7 +474,7 @@ var _propTypes = __webpack_require__(13);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _Helpers = __webpack_require__(7);
+var _Helpers = __webpack_require__(8);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -558,7 +558,7 @@ var InfiniteScroll = function (_Component) {
 			var loadingSpinner = (0, _Helpers.spinner)();
 
 			return _react2.default.createElement(
-				'div',
+				CustomTag,
 				{
 					ref: function ref(node) {
 						_this2.scrollComponent = node;
@@ -638,6 +638,25 @@ InfiniteScroll.propTypes = {
 
 
 Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _InfiniteScroll = __webpack_require__(6);
+
+var _InfiniteScroll2 = _interopRequireDefault(_InfiniteScroll);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _InfiniteScroll2.default;
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 exports.getScrollParent = getScrollParent;
@@ -689,25 +708,6 @@ function spinner() {
 		)
 	);
 }
-
-/***/ }),
-/* 8 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _InfiniteScroll = __webpack_require__(6);
-
-var _InfiniteScroll2 = _interopRequireDefault(_InfiniteScroll);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = _InfiniteScroll2.default;
 
 /***/ }),
 /* 9 */

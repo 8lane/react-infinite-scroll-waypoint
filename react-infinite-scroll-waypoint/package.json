@@ -2,7 +2,7 @@
   "name": "react-infinite-scroll-waypoint",
   "version": "0.0.1",
   "description": "Put a description here",
-  "main": "./build/index.js",
+  "main": "./compiled/index.js",
   "peerDependencies": {
     "react": "^15.5.4"
   },
@@ -16,8 +16,8 @@
     "build": "webpack"
   },
   "author": {
-    "name": "Your name",
-    "email": "your email"
+    "name": "Tom Christian",
+    "email": "hello@elseif.io"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",

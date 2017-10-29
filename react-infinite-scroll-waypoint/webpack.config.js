@@ -1,9 +1,9 @@
 var path = require('path');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './app/index.js',
   output: {
-    path: path.resolve(__dirname, 'build'),
+    path: path.resolve(__dirname, 'compiled'),
     filename: 'index.js',
     libraryTarget: 'commonjs2'
   },
@@ -14,7 +14,7 @@ module.exports = {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        include: path.resolve(__dirname, 'src'),
+        include: path.resolve(__dirname, 'app'),
         exclude: /(node_modules|bower_components|build)/,
         use: {
           loader: 'babel-loader',
