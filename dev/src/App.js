@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 
-import InfiniteScroll from './InfiniteScroll';
+import InfiniteScroll from 'react-infinite-scroll-waypoint';
+
+// import InfiniteScroll from './InfiniteScroll';
 
 import logo from './logo.svg';
 import './App.css';
+
 
 class App extends Component {
 	constructor(props) {
@@ -50,6 +53,7 @@ class App extends Component {
 				</header>
 				<section className="App-intro">
 					<InfiniteScroll
+						componentTagName="div"
 						scrollElementName="App-intro"
 						loading={this.state.loading}
 						currentPage={1}
