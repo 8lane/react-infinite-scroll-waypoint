@@ -1,6 +1,6 @@
 {
   "name": "react-infinite-scroll-waypoint",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Infinite scroll component focusing on easy integration via advanced configuration abilities",
   "main": "./compiled/index.js",
   "keywords": [

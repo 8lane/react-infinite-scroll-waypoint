@@ -1,3 +1,3 @@
-import InfiniteScroll from './app/InfiniteScroll';
+import InfiniteScroll from './src/InfiniteScroll';
 
 export default InfiniteScroll;

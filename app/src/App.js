@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 
-import InfiniteScroll from 'react-infinite-scroll-waypoint';
-
-// import InfiniteScroll from './InfiniteScroll';
+// import InfiniteScroll from 'react-infinite-scroll-waypoint'; npm link version
+import InfiniteScroll from './InfiniteScroll';
 
 import logo from './logo.svg';
 import './App.css';

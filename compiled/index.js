@@ -64,7 +64,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 7);
+/******/ 	return __webpack_require__(__webpack_require__.s = 12);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -470,11 +470,11 @@ var _react = __webpack_require__(5);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(13);
+var _propTypes = __webpack_require__(11);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _Helpers = __webpack_require__(8);
+var _Helpers = __webpack_require__(13);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -635,85 +635,6 @@ InfiniteScroll.propTypes = {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _InfiniteScroll = __webpack_require__(6);
-
-var _InfiniteScroll2 = _interopRequireDefault(_InfiniteScroll);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = _InfiniteScroll2.default;
-
-/***/ }),
-/* 8 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-exports.getScrollParent = getScrollParent;
-exports.isWaypointVisible = isWaypointVisible;
-exports.spinner = spinner;
-
-var _react = __webpack_require__(5);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function getScrollParent(el, className) {
-	while (el.className !== className) {
-		el = el.parentNode;
-		if (!el) {
-			return null;
-		}
-	}
-
-	return el;
-}
-
-function isWaypointVisible(container, waypoint) {
-	var containerRect = container.getBoundingClientRect();
-	var waypointRect = waypoint.getBoundingClientRect();
-
-	return waypointRect.top < container.offsetHeight + containerRect.top;
-}
-
-/* https://codepen.io/aurer/pen/jEGbA */
-function spinner() {
-	return _react2.default.createElement(
-		"svg",
-		{ version: "1.1", id: "loader-1", xmlns: "http://www.w3.org/2000/svg", xmlnsXlink: "http://www.w3.org/1999/xlink", x: "0px", y: "0px",
-			width: "40px", height: "40px", viewBox: "0 0 40 40", enableBackground: "new 0 0 40 40", xmlSpace: "preserve" },
-		_react2.default.createElement("path", { opacity: "0.2", fill: "#000", d: "M20.201,5.169c-8.254,0-14.946,6.692-14.946,14.946c0,8.255,6.692,14.946,14.946,14.946 s14.946-6.691,14.946-14.946C35.146,11.861,28.455,5.169,20.201,5.169z M20.201,31.749c-6.425,0-11.634-5.208-11.634-11.634 c0-6.425,5.209-11.634,11.634-11.634c6.425,0,11.633,5.209,11.633,11.634C31.834,26.541,26.626,31.749,20.201,31.749z" }),
-		_react2.default.createElement(
-			"path",
-			{ fill: "#000", d: "M26.013,10.047l1.654-2.866c-2.198-1.272-4.743-2.012-7.466-2.012h0v3.312h0 C22.32,8.481,24.301,9.057,26.013,10.047z" },
-			_react2.default.createElement("animateTransform", { attributeType: "xml",
-				attributeName: "transform",
-				type: "rotate",
-				from: "0 20 20",
-				to: "360 20 20",
-				dur: "0.5s",
-				repeatCount: "indefinite"
-			})
-		)
-	);
-}
-
-/***/ }),
-/* 9 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
 /*
 object-assign
 (c) Sindre Sorhus
@@ -807,7 +728,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 
 /***/ }),
-/* 10 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -874,7 +795,7 @@ module.exports = checkPropTypes;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 11 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -939,7 +860,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 12 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -955,10 +876,10 @@ module.exports = function() {
 var emptyFunction = __webpack_require__(1);
 var invariant = __webpack_require__(2);
 var warning = __webpack_require__(4);
-var assign = __webpack_require__(9);
+var assign = __webpack_require__(7);
 
 var ReactPropTypesSecret = __webpack_require__(3);
-var checkPropTypes = __webpack_require__(10);
+var checkPropTypes = __webpack_require__(8);
 
 module.exports = function(isValidElement, throwOnDirectAccess) {
   /* global Symbol */
@@ -1489,7 +1410,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 13 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process) {/**
@@ -1514,14 +1435,93 @@ if (process.env.NODE_ENV !== 'production') {
   // By explicitly using `prop-types` you are opting into new development behavior.
   // http://fb.me/prop-types-in-prod
   var throwOnDirectAccess = true;
-  module.exports = __webpack_require__(12)(isValidElement, throwOnDirectAccess);
+  module.exports = __webpack_require__(10)(isValidElement, throwOnDirectAccess);
 } else {
   // By explicitly using `prop-types` you are opting into new production behavior.
   // http://fb.me/prop-types-in-prod
-  module.exports = __webpack_require__(11)();
+  module.exports = __webpack_require__(9)();
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _InfiniteScroll = __webpack_require__(6);
+
+var _InfiniteScroll2 = _interopRequireDefault(_InfiniteScroll);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _InfiniteScroll2.default;
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.getScrollParent = getScrollParent;
+exports.isWaypointVisible = isWaypointVisible;
+exports.spinner = spinner;
+
+var _react = __webpack_require__(5);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function getScrollParent(el, className) {
+	while (el.className !== className) {
+		el = el.parentNode;
+		if (!el) {
+			return null;
+		}
+	}
+
+	return el;
+}
+
+function isWaypointVisible(container, waypoint) {
+	var containerRect = container.getBoundingClientRect();
+	var waypointRect = waypoint.getBoundingClientRect();
+
+	return waypointRect.top < container.offsetHeight + containerRect.top;
+}
+
+/* https://codepen.io/aurer/pen/jEGbA */
+function spinner() {
+	return _react2.default.createElement(
+		"svg",
+		{ version: "1.1", id: "loader-1", xmlns: "http://www.w3.org/2000/svg", xmlnsXlink: "http://www.w3.org/1999/xlink", x: "0px", y: "0px",
+			width: "40px", height: "40px", viewBox: "0 0 40 40", enableBackground: "new 0 0 40 40", xmlSpace: "preserve" },
+		_react2.default.createElement("path", { opacity: "0.2", fill: "#000", d: "M20.201,5.169c-8.254,0-14.946,6.692-14.946,14.946c0,8.255,6.692,14.946,14.946,14.946 s14.946-6.691,14.946-14.946C35.146,11.861,28.455,5.169,20.201,5.169z M20.201,31.749c-6.425,0-11.634-5.208-11.634-11.634 c0-6.425,5.209-11.634,11.634-11.634c6.425,0,11.633,5.209,11.633,11.634C31.834,26.541,26.626,31.749,20.201,31.749z" }),
+		_react2.default.createElement(
+			"path",
+			{ fill: "#000", d: "M26.013,10.047l1.654-2.866c-2.198-1.272-4.743-2.012-7.466-2.012h0v3.312h0 C22.32,8.481,24.301,9.057,26.013,10.047z" },
+			_react2.default.createElement("animateTransform", { attributeType: "xml",
+				attributeName: "transform",
+				type: "rotate",
+				from: "0 20 20",
+				to: "360 20 20",
+				dur: "0.5s",
+				repeatCount: "indefinite"
+			})
+		)
+	);
+}
 
 /***/ })
 /******/ ]);
