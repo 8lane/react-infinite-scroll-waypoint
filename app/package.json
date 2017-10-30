@@ -2,6 +2,7 @@
   "name": "react-infinite-scroll-waypoint",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://tctc91.github.io/react-infinite-scroll-waypoint/",
   "dependencies": {
     "enzyme": "^3.1.0",
     "react": "^16.0.0",
@@ -13,11 +14,14 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "devDependencies": {
     "enzyme": "^3.1.0",
     "enzyme-adapter-react-16": "^1.0.2",
+    "gh-pages": "^1.0.0",
     "prop-types": "^15.6.0",
     "react-test-renderer": "^16.0.0"
   }
