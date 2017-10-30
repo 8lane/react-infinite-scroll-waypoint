@@ -4,9 +4,12 @@ react-infinite-scroll-waypoint
 [![NPM version][npm-image]][npm-url]
 [![Downloads][downloads-image]][downloads-url]
 
-Highly configurable infinite scroll React component. After working on a client project using React without Webpack and no ES6 module support, I created this component from scratch inspired from the various similar NPM plugins available.
+Highly configurable infinite scroll React component. After working on a client project using React without Webpack and without ES6 module support, I ended up creating a component inspired from the various scroll plugins available on NPM. I've since re-written it and made it available on NPM with full test coverage and extra configuration options.
 
-Demo will soon be available [here](#)
+### Demo available [here](https://tctc91.github.io/react-infinite-scroll-waypoint/)
+
+![alt text](https://i.imgur.com/bl0GCqC.png "Preview image")
+
 
 ### Features
 
@@ -29,8 +32,16 @@ Detailed docs coming shortly with info on all available props
 
 import InfiniteScroll from 'react-infinite-scroll-waypoint';
 
-<InfiniteScroll {...{ props }}>
-  items inside...
+<InfiniteScroll
+  scrollElementName="classname-of-scroll-element"
+  loading={false}
+  currentPage={1}
+  clickToUpdate={false}
+  hasMore={true}
+  onUpdate={page => console.log('call for more items!')}
+>
+  // map your results here
+  // when onUpdate() is fired, merge your new results in
 </InfiniteScroll>
 ```
 
@@ -44,7 +55,7 @@ $ npm i
 $ npm start
 ```
 
-** run tests**
+**Run tests**
 
 ```
 $ cd app
