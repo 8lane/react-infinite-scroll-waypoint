@@ -49,7 +49,7 @@ import InfiniteScroll from 'react-infinite-scroll-waypoint';
 
 ```
 $ git clone https://github.com/tctc91/react-infinite-scroll-waypoint.git
-$ cd src/app
+$ cd app
 $ npm i
 $ npm start
 ```
@@ -62,6 +62,7 @@ $ npm run test
 ```
 
 **Available Props**
+
 | Prop Name | Type | Required | Default Value | Description
 |-----------|-----------|:-----------:|-----------|-----------|
 | scrollElementName | string |✓|| The class name of the element in which contains the srollable content. E.g. the element which should have a scrollbar |

@@ -2,7 +2,7 @@ language: node_js
 node_js:
   - "9"
 before_script:
-  - yarn
+  - cd app && npm install
 script: cd app && npm run test
 notifications:
   email:
