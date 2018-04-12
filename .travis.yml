@@ -3,7 +3,7 @@ node_js:
   - "9"
 before_script:
   - cd app && npm install
-script: cd app && npm run test
+script: npm run test
 notifications:
   email:
     on_success: never
