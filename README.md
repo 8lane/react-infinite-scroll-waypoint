@@ -2,6 +2,7 @@ react-infinite-scroll-waypoint
 ==============
 
 [![NPM version][npm-image]][npm-url]
+[![Build Status](https://travis-ci.org/tctc91/react-infinite-scroll-waypoint.svg?branch=master)](https://travis-ci.org/tctc91/react-infinite-scroll-waypoint)
 [![Downloads][downloads-image]][downloads-url]
 
 Highly configurable infinite scroll React component. After working on a client project using React without Webpack and without ES6 module support, I ended up creating a component inspired from the various scroll plugins available on NPM. I've since re-written it and made it available on NPM with full test coverage and extra configuration options.
@@ -64,7 +65,7 @@ $ npm run test
 **Available Props**
 
 | Prop Name | Type | Required | Default Value | Description
-|-----------|-----------|:-----------:|-----------|-----------|
+|:-----------|:-----------|:-----------:|:-----------|:-----------|
 | scrollElementName | string |✓|| The class name of the element in which contains the srollable content. E.g. the element which should have a scrollbar |
 | loading  | bool || false | Indicates that new content is fetching |
 | hasMore  | bool || true | Prevents the onUpdate callback from firing when no more content is available |
